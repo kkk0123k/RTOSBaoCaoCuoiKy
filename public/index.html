@@ -1,0 +1,67 @@
+<!-- Complete Project Details at: https://RandomNerdTutorials.com/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP Firebase App</title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <!-- Add SDKs for Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+
+    <script>
+    // REPLACE WITH YOUR web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCAzsvANrl4PNEyCUJ7chHf6aE-FpW9uPY",
+        authDomain: "esp32-firebase-4f7d3.firebaseapp.com",
+        databaseURL: "https://esp32-firebase-4f7d3-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "esp32-firebase-4f7d3",
+        storageBucket: "esp32-firebase-4f7d3.appspot.com",
+        messagingSenderId: "542597716732",
+        appId: "1:542597716732:web:8fb65417c3f77804189579"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+    </script>
+    <script src="app.js" defer></script>
+    
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>ESP32 Firebase Web App Example</h1>
+        <p>Door Password: <span id="door-password"></span></p>
+        <button onclick="updatePassword()">Update Password</button>
+        <br><br>
+        <p>Valid UID List:</p>
+        <table id="uid-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>UID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="uid-table-body">
+            </tbody>
+        </table>
+        <br>
+        <form id="add-uid-form">
+            <input type="text" id="new-uid" placeholder="Enter new UID" required>
+            <button type="button" onclick="addUID()">Add Card</button>
+        </form>
+    </body>
+    </html>
